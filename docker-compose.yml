@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  sustineri:
+    build:
+      context: .
+      dockerfile: ./ops/compose/sustineri/Dockerfile
+    volumes:
+      - ./app:/app
+    ports:
+      - 3000:3000

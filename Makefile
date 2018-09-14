@@ -6,12 +6,12 @@ all: clean build
 
 .PHONY: build
 build:
-	@mkdir -p ${HOME}/.m2
-	@docker-compose run compiler
+	@docker-compose build
 	@echo Build done.
 
 .PHONY: start
 start:
+	@docker-compose up -d
 	@echo Start done.
 
 .PHONY: clean
