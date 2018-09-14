@@ -30,3 +30,11 @@ Some notes [here](notes.md).
     "hello": "world"
 }
 ```
+
+## Idea
+  
+
+## Tasks 
+
+[ ] Bla
+

@@ -1,7 +1,0 @@
-## Idea
-  
-
-## Tasks 
-
-[ ] Bla
-
