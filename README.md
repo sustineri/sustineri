@@ -2,6 +2,25 @@
 
 A project for the HackZurich 2018.
 
+## Prerequisites
+
+* Docker 18 or later
+
+## Setup
+
+```bash
+# Get the code, cd to sustineri, setup sustineri in Docker
+git clone git@github.com:lucachristen/sustineri.git \
+    && cd sustineri \
+    && make 
+```
+
+## Run
+
+```bash
+make start
+```
+
 ## Server API
 
 ### POST `/api/post_something`
