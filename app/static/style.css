@@ -1,0 +1,15 @@
+body { margin: 0 }
+
+#main {
+	width: 100vw;
+	height: 100vh;
+	box-sizing: border-box;
+}
+
+#content {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80vw;
+	height: 50vh;
+	margin-top: 10vh;
+}

@@ -1,0 +1,25 @@
+# -----------------------------------------------------------------------------
+# BUILD
+# -----------------------------------------------------------------------------
+.PHONY: all
+all: clean build
+
+.PHONY: build
+build:
+	@mkdir -p ${HOME}/.m2
+	@docker-compose run compiler
+	@echo Build done.
+
+.PHONY: start
+start:
+	@echo Start done.
+
+.PHONY: clean
+clean:
+	@rm -rf .cache
+	@rm -rf target
+	@rm -f .coverage
+	@rm -f .version
+	@find . -iname __pycache__ | xargs rm -rf
+	@find . -iname "*.pyc" | xargs rm -f
+	@find . -iname "mb*.log" | xargs rm -f
