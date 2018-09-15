@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, request, jsonify
 
 from database.init import DatabaseInitialiser
+from database.data import SustineriData
 from pdf.coop_pdf_parser import CoopPdfParser
 from credit_suisse.credit_suisse_api import CreditSuisseApi
 
@@ -30,6 +31,14 @@ def api_test_pdf():
     try:
         json_data = request.get_json()
         return jsonify(CoopPdfParser.parse(json_data['pdf']))
+    except Exception as e:
+        return jsonify(**{"error": e})
+
+
+@app.route('/api/overview', methods=['GET'])
+def api_get_overview():
+    try:
+        return jsonify(SustineriData.get_overview())
     except Exception as e:
         return jsonify(**{"error": e})
 
