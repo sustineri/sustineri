@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 
-from app.pdf.coop_pdf_parser import CoopPdfParser
+from app.src.pdf.coop_pdf_parser import CoopPdfParser
 
 app = Flask(__name__)
 
