@@ -1,3 +1,5 @@
+from os import environ
+
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, jsonify
 
@@ -59,5 +61,16 @@ def compensate():
 
 if __name__ == '__main__':
     load_dotenv()
+    print("========================================")
+    print("=========         ENV VARS         =====")
+    print("========================================")
+    print(f"database host: {environ.get('DATABASE_HOST')}")
+    print(f"database port: {environ.get('DATABASE_PORT')}")
+    print(f"database user: {environ.get('DATABASE_USER')}")
+    print(f"database pw: {environ.get('DATABASE_PASSWORD')}")
+    print(f"database name: {environ.get('DATABASE_NAME')}")
+    print(f"vcap services: {environ.get('VCAP_SERVICES')}")
+    print(f"vcap: {environ.get('vcap')}")
+    print("========================================")
     DatabaseInitialiser.init()
     app.run(host='0.0.0.0', port=3000, debug=True)
