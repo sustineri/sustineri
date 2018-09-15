@@ -18,6 +18,12 @@
             <div id="chartdiv" style="width: 100%; height: 400px;">
                 <h2>Loading data...</h2>
             </div>
+
+            <div>
+                Red Columns: You created more CO<sub>2</sub> than the average. <br>
+                Green Columns: You created less CO<sub>2</sub> than the average. <br>
+
+            </div>
         </div>
     </div>
 </div>
@@ -64,7 +70,6 @@
     chart.zoomOutButton.disabled = true;
 
     var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-    dateAxis.renderer.grid.template.strokeOpacity = 0;
     dateAxis.dateFormats.setKey("MMM-d");
     dateAxis.tooltip.hiddenState.properties.opacity = 1;
     dateAxis.tooltip.hiddenState.properties.visible = true;
@@ -72,7 +77,6 @@
     var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.renderer.inside = true;
     valueAxis.renderer.labels.template.fillOpacity = 0.3;
-    valueAxis.renderer.grid.template.strokeOpacity = 0;
     valueAxis.min = 0;
     valueAxis.cursorTooltipEnabled = false;
 
@@ -98,9 +102,9 @@
     series.tooltipText = "Your GWP: {valueY} KG CO2";
     series.tooltip.hiddenState.properties.opacity = 1;
     series.tooltip.hiddenState.properties.visible = true;
+    series.legendSettings.labelText = "Your average GWP"
 
     var avg = chart.series.push(new am4charts.LineSeries());
-    avg.name = "Average";
     avg.dataFields.dateX = "date";
     avg.dataFields.valueY = "avg";
     avg.tooltipText = "Average GWP: {valueY.value} KG CO2";
@@ -110,7 +114,7 @@
     avg.strokeWidth = 3;
 
     var columnTemplate = series.columns.template;
-    columnTemplate.width = 30;
+    columnTemplate.width = 22;
     columnTemplate.column.cornerRadiusTopLeft = 3;
     columnTemplate.column.cornerRadiusTopRight = 3;
     columnTemplate.strokeOpacity = 0;
