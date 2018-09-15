@@ -1,0 +1,13 @@
+# Configuration for Cloud Foundry deployment
+---
+applications:
+
+- name: sustineri
+  memory: 768M
+  instances: 1
+  docker:
+    image: emazzotta/sustineri
+  routes:
+  - route: sustineri.scapp.io
+  services:
+    - sustineri-database
