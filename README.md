@@ -53,17 +53,17 @@ make start
 ## Idea
 
 - [ ] Screen 1  
-* Defintion Reduction des "CO2" Werte
+- Defintion Reduction des "CO2" Werte
 - [ ] Screen 2  
-* Übersicht pro Kunde und Woche des co2 wertes
+- Übersicht pro Kunde und Woche des co2 wertes
 - [ ] Screen 3  
-* Brackdown auf die einzelnen Kategorien
+- Brackdown auf die einzelnen Kategorien
 - [ ] Screen 4  
-* Investment Screen mit Empfehlung, in welche Produkte investiert werden muss, um die Reductionsziele zu erreichen       
+- Investment Screen mit Empfehlung, in welche Produkte investiert werden muss, um die Reductionsziele zu erreichen       
 - [ ] Screen 5  
-* eBanking Screen mit Transctions-Daten und sustineri-Widget
+- eBanking Screen mit Transctions-Daten und sustineri-Widget
 
-## Tasks 
+## Tasks
 
 - [ ] Application Deployment  
 - [ ] PDF Parsing  
