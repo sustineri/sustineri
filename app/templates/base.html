@@ -6,8 +6,12 @@
   <meta name="theme-color" content="#303466">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="../static/style.css">
-
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="manifest" href="/static/manifest.json">
+  <link rel="apple-touch-icon" type="image/x-icon" href="/static/favicon/favicon-32x32.png"/>
+  <link rel="shortcut icon" type="image/x-icon" href="/static/favicon/favicon-32x32.png"/>
+  <link rel="icon" type="image/x-icon" href="/static/favicon/favicon-32x32.png"/>
+  <meta name="msapplication-config" content="/static/browserconfig.xml" />
   <script>
     function logout() {
       window.location = '/';
@@ -44,7 +48,7 @@
         $("#nav").css("display", "inline-grid");
       }
       checkLogo();
-    })
+    });
 
     function logout() {
       localStorage.setItem("loggedIn", 'false');
@@ -53,7 +57,7 @@
 
     $(window).on('resize', function () {
       checkLogo();
-    })
+    });
 
     function checkLogo () {
       let width = $(window).width();
