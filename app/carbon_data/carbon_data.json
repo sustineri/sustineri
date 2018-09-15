@@ -92,7 +92,7 @@
   },
   {
     "id": 14,
-    "name": "Gruyére",
+    "name": "GruyÃ¨re",
     "gwp": 8.29,
     "energyConsumption": 35.5,
     "waterConsumption": 0.15
@@ -287,9 +287,9 @@
     "waterConsumption": ""
   },
   {
-    "id": "42Wheat",
-    "name": 0.51,
-    "gwp": "",
+    "id": 42,
+    "name": "Wheat",
+    "gwp": 0.51,
     "energyConsumption": "",
     "waterConsumption": ""
   },
