@@ -1,3 +1,4 @@
+import base64
 import pdftotext
 import re
 
@@ -9,8 +10,12 @@ class CoopPdfParser:
     PRICE_INDEX = 2
 
     @staticmethod
-    def parse(pdf_file):
-        pdf = pdftotext.PDF(pdf_file)
+    def parse(pdf_stream):
+        with open('pdf_file.pdf', mode='wb') as fw:
+            fw.write(base64.decodebytes(str.encode(pdf_stream)))
+
+        with open('pdf_file.pdf', mode='rb') as fr:
+            pdf = pdftotext.PDF(fr)
 
         products = []
         for line in pdf[0].splitlines()[CoopPdfParser.START_ROW:]:

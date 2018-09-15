@@ -24,8 +24,7 @@ def api_get_something():
 def api_test_pdf():
     try:
         json_data = request.get_json()
-        pdf = base64.b64decode(json_data['pdf'])
-        return jsonify(CoopPdfParser.parse(pdf))
+        return jsonify(CoopPdfParser.parse(json_data['pdf']))
     except Exception as e:
         return jsonify(**{"error": e})
 
