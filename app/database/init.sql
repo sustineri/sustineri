@@ -22,4 +22,3 @@ CREATE TABLE IF NOT EXISTS items (
 
     FOREIGN KEY (receipt_id) REFERENCES receipts(receipt_id)
 );
->>>>>>> Update init SQL script
