@@ -23,7 +23,7 @@ start:
 	@echo Start done.
 
 .PHONY: stop
-stop:
+stop: stop_deps
 	@docker-compose stop
 	@echo Stop done.
 

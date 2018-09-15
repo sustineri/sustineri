@@ -56,6 +56,7 @@ def upload():
 def compensate():
     return render_template('compensate.html')
 
+
 if __name__ == '__main__':
     load_dotenv()
     DatabaseInitialiser.init()
