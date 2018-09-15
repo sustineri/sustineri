@@ -58,7 +58,6 @@ class CoopPdfParser:
 
         match = re.search(r'[0-9]+g', product_name)
         if match is not None:
-            print(match.group(0))
             return float(match.group(0)[:-len('g')]) / 1000
 
         match = re.search(r'[0-9]x[0-9]+l', product_name)
