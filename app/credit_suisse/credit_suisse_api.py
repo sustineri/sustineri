@@ -14,8 +14,8 @@ class CreditSuisseApi:
                 {
                     "andOr": "and",
                     "attribute": "isin",
-                    "operator": "=",
-                    "value": f"'{isin}'"
+                    "operator": "in",
+                    "value": f"('US92189F5026', 'US33733E5006', 'US26923G3011', 'US46138G7060')"
                 }
 
             ],
