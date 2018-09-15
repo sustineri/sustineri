@@ -5,24 +5,25 @@
 <div class="panel">
     <div class="title">
         <h1>Your Dashboard</h1>
-        <div id="result">
-            <div id="below-avg" style="display: none">
-                Good boy
-            </div>
-            <div id="above-avg" style="display: none">
-                <p>Oh it looks like your CO<sub>2</sub> footprint is below average this week.</p>
-                <button onclick="toCompensate()" type="submit">Let's compensate it!</button>
-            </div>
+    </div>
+    <div id="result">
+        <div id="below-avg" style="display: none">
+            Good boy
         </div>
-        <div class="diagram">
-            <div id="chartdiv" style="width: 100%; height: 400px;">
-                <h2>Loading data...</h2>
-            </div>
-            <div>
-                <button onclick="toUpload()" type="submit">Upload receipt</button>
-            </div>
+        <div id="above-avg" style="display: none">
+            <p>Oh it looks like your CO<sub>2</sub> footprint is above average this week.</p>
+            <button onclick="toCompensate()" type="submit">Let's compensate it!</button>
         </div>
     </div>
+    <div class="diagram">
+        <div id="chartdiv" style="width: 100%; height: 400px;">
+            <h2>Loading data...</h2>
+        </div>
+        <div>
+            <button onclick="toUpload()" type="submit">Upload receipt</button>
+        </div>
+    </div>
+
 </div>
 
 <script src="../static/js/core.js"></script>
@@ -146,33 +147,13 @@
         window.location = '/compensate';
     }
 
-    function get_etfs() {
-        let data = {};
-        fetch(window.location.origin + "/api/get_etf", {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: "POST",
-                body: data
-            })
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => {
-                console.log("Error: ", error)
-            });
-    }
-
     $(function () {
         let newest = data.data.reduce(function (a, b) {
             return a.date > b.date ? a : b
         });
         if (newest.gwp > newest.avg) {
-            get_etfs();
+            let usagePercentage = newest.gwp / newest.avg * 100 - 100;
+            localStorage.setItem('usagePercentage', usagePercentage.toFixed(2));
             $("#above-avg").css("display", "block")
         } else {
             $("#below-avg").css("display", "block")

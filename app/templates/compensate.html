@@ -2,6 +2,59 @@
 
 {% block page_content %}
 <div class="panel">
-    Compensate
+    <div class="title">
+        <h1>Compensate</h1>
+        <p>Your CO<sub>2</sub> footprint was <span id=percentage></span>% above the average this week.</p>
+        <p>Here are some ways to compensate:</p>
+        <table class="divTable">
+            <thead id="thead">
+            <tr>
+                    <th>Isin</th>
+                    <th>Name</th>
+                    <th>Currency</th>
+                    <th>Select</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<script>
+    function get_etfs() {
+        let data = {};
+        fetch(window.location.origin + "/api/get_etf", {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: data
+            })
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                data.object.forEach(element => {
+                    console.log(element)
+                    $('#tbody').append('<tr>' +
+                    '<td>' + element.isin + '</td>' +
+                    '<td>' + element.description + '</td>' + 
+                    '<td>' + element.currency + '</td>' +
+                    '<td>' + '<a href="#">select</a>' + '</td>' +
+                '</tr')                    
+                });
+            })
+            .catch(error => {
+                console.log("Error: ", error)
+            });
+    }
+
+    $(function () {
+        get_etfs();
+        $("#percentage").text(localStorage.getItem('usagePercentage'));
+    });
+</script>
 {% endblock %}

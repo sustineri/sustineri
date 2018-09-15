@@ -118,3 +118,23 @@ input {
 	top: 0;
 	opacity: 0;
 }
+
+table {
+	width: 100%;
+	margin-bottom: 1rem;
+	background-color: #fff;
+}
+
+table thead th {
+	vertical-align: bottom;
+	border: 0px;
+	border-bottom: 2px solid #dee2e6;
+}
+
+table td, table th { 
+	padding: .75rem;
+}
+
+tr {
+	text-align: center;
+}
