@@ -32,36 +32,37 @@
 
     data = {
         "data": [{
-            "date": "2018-08-05",
+            "date": 31,
             "gwp": 4561,
             "avg": 4232
         }, {
-            "date": "2018-08-12",
+            "date": 32,
             "gwp": 5687,
             "avg": 4928
         }, {
-            "date": "2018-08-19",
+            "date": 33,
             "gwp": 6348,
             "avg": 6432
         }, {
-            "date": "2018-08-26",
+            "date": 34,
             "gwp": 4878,
             "avg": 4922
         }, {
-            "date": "2018-09-02",
+            "date": 35,
             "gwp": 6867,
             "avg": 4992
         }, {
-            "date": "2018-09-09",
+            "date": 36,
             "gwp": 7561,
             "avg": 4642
         }, {
-            "date": "2018-09-16",
+            "date": 37,
             "gwp": 4287,
             "avg": 3873
         }]
     };
 
+    data.data.map(ele => ele.date = getDateOfWeek(ele.date, 2018));
     chart.data = data.data;
 
     chart.dateFormatter.inputDateFormat = "YYYY-MM-dd";
@@ -100,7 +101,7 @@
     var series = chart.series.push(new am4charts.ColumnSeries);
     series.dataFields.valueY = "gwp";
     series.dataFields.dateX = "date";
-    series.tooltipText = "Your gwp: {valueY}";
+    series.tooltipText = "Your GWP: {valueY} KG CO2";
     series.tooltip.hiddenState.properties.opacity = 1;
     series.tooltip.hiddenState.properties.visible = true;
 
@@ -108,7 +109,7 @@
     avg.name = "Average";
     avg.dataFields.dateX = "date";
     avg.dataFields.valueY = "avg";
-    avg.tooltipText = "Average gwp: {valueY.value}";
+    avg.tooltipText = "Average GWP: {valueY.value} KG CO2";
     avg.fill = am4core.color("#2c3dc1");
     avg.stroke = am4core.color("#2c3dc1");
     avg.strokeWidth = 3;
@@ -141,6 +142,11 @@
 
     function toCompensate() {
         window.location = '/compensate';
+    }
+
+    function getDateOfWeek(w, y) {
+        var d = (1 + (w - 1) * 7);
+        return new Date(y, 0, d).toISOString().substring(0, 10);
     }
 
     $(function () {
