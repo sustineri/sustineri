@@ -14,7 +14,7 @@ nav {
     grid-column: 2;
     grid-row: 2;
     display: inline-grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 40% 20% 20% 20%;
     box-shadow: inset 0 0 0 3000px rgba(255, 255, 255, 0.5);
     border-radius: 10px;
     padding: 10px;
@@ -29,6 +29,11 @@ nav a {
 
 nav a:hover {
     text-decoration: underline;
+}
+
+nav .logo {
+	height: 100%;
+	max-width: 100%;
 }
 
 #content {
