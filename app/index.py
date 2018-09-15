@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify
 
 from pdf.coop_pdf_parser import CoopPdfParser
 
+from credit_suisse.credit_suisse_api import CreditSuisseApi
+
 app = Flask(__name__)
 
 
@@ -26,6 +28,12 @@ def api_test_pdf():
         return jsonify(CoopPdfParser.parse(json_data['pdf']))
     except Exception as e:
         return jsonify(**{"error": e})
+
+
+@app.route('/api/get_etf', methods=['POST'])
+def api_get_etf():
+    cs = CreditSuisseApi()
+    return cs.get_etf().content
 
 
 @app.route('/')
