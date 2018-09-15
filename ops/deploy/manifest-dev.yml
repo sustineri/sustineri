@@ -4,7 +4,7 @@ applications:
 
 - name: sustineri
   memory: 768M
-  instances: 1
+  instances: 2
   docker:
     image: emazzotta/sustineri
   routes:
