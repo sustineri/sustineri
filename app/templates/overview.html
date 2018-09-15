@@ -5,25 +5,24 @@
 <div class="panel">
     <div class="title">
         <h1>Your Dashboard</h1>
+        <div id="result">
+            <div id="below-avg" style="display: none">
+                Good boy
+            </div>
+            <div id="above-avg" style="display: none">
+                <p>Oh it looks like your CO<sub>2</sub> footprint is above average this week.</p>
+                <button onclick="toCompensate()" type="submit">Let's compensate it!</button>
+            </div>
+        </div>
+        <div class="diagram">
+            <div id="chartdiv" style="width: 100%; height: 400px;">
+                <h2>Loading data...</h2>
+            </div>
+            <div>
+                <button onclick="toUpload()" type="submit">Upload receipt</button>
+            </div>
+        </div>
     </div>
-    <div id="result">
-        <div id="below-avg" style="display: none">
-            Good boy
-        </div>
-        <div id="above-avg" style="display: none">
-            <p>Oh it looks like your CO<sub>2</sub> footprint is above average this week.</p>
-            <button onclick="toCompensate()" type="submit">Let's compensate it!</button>
-        </div>
-    </div>
-    <div class="diagram">
-        <div id="chartdiv" style="width: 100%; height: 400px;">
-            <h2>Loading data...</h2>
-        </div>
-        <div>
-            <button onclick="toUpload()" type="submit">Upload receipt</button>
-        </div>
-    </div>
-
 </div>
 
 <script src="../static/js/core.js"></script>

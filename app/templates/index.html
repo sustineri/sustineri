@@ -40,7 +40,8 @@
       pw.css('border', '1px solid black')
     }
     if (username.val() !== '' && pw.val() !== '') {
-        window.location = '/overview';
+      localStorage.setItem("loggedIn", true);
+      window.location = '/overview';
     }
   }
 </script>
