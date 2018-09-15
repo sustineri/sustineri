@@ -1,0 +1,317 @@
+[
+  {
+    "id": 1,
+    "name": "Almond milk",
+    "gwp": 1.09,
+    "energyConsumption": 1.09,
+    "waterConsumption": 1.09
+  },
+  {
+    "id": 2,
+    "name": "Almonds",
+    "gwp": 2.18,
+    "energyConsumption": 26.31,
+    "waterConsumption": 1.9
+  },
+  {
+    "id": 3,
+    "name": "Beef",
+    "gwp": 27.76,
+    "energyConsumption": 164.22,
+    "waterConsumption": 0.47
+  },
+  {
+    "id": 4,
+    "name": "Cheese slices",
+    "gwp": 8.29,
+    "energyConsumption": 35.5,
+    "waterConsumption": 0.15
+  },
+  {
+    "id": 5,
+    "name": "Cheese spread",
+    "gwp": 6.2,
+    "energyConsumption": 26.71,
+    "waterConsumption": 0.11
+  },
+  {
+    "id": 6,
+    "name": "Chicken",
+    "gwp": 6.82,
+    "energyConsumption": 64.14,
+    "waterConsumption": 0.34
+  },
+  {
+    "id": 7,
+    "name": "Chocolate",
+    "gwp": 14.67,
+    "energyConsumption": 90.25,
+    "waterConsumption": 0.38
+  },
+  {
+    "id": 8,
+    "name": "Chocolate milk",
+    "gwp": 4.65,
+    "energyConsumption": 26.92,
+    "waterConsumption": 0.11
+  },
+  {
+    "id": 9,
+    "name": "Corn",
+    "gwp": 0.19,
+    "energyConsumption": 1.88,
+    "waterConsumption": 0.06
+  },
+  {
+    "id": 10,
+    "name": "Dried Beef",
+    "gwp": 27.76,
+    "energyConsumption": 164.22,
+    "waterConsumption": 0.47
+  },
+  {
+    "id": 11,
+    "name": "Dry Pasta",
+    "gwp": 1.49,
+    "energyConsumption": 17.23,
+    "waterConsumption": 0.01
+  },
+  {
+    "id": 12,
+    "name": "Fresh ravioli with meat",
+    "gwp": 10.25,
+    "energyConsumption": 66.22,
+    "waterConsumption": 0.16
+  },
+  {
+    "id": 13,
+    "name": "Fresh ravioli with spinach and ricotta",
+    "gwp": 3.06,
+    "energyConsumption": 20.38,
+    "waterConsumption": 0.04
+  },
+  {
+    "id": 14,
+    "name": "Gruyére",
+    "gwp": 8.29,
+    "energyConsumption": 35.5,
+    "waterConsumption": 0.15
+  },
+  {
+    "id": 15,
+    "name": "Ham",
+    "gwp": 10.76,
+    "energyConsumption": 91.4,
+    "waterConsumption": 0.52
+  },
+  {
+    "id": 16,
+    "name": "Lentils",
+    "gwp": 0.78,
+    "energyConsumption": 5.67,
+    "waterConsumption": 0.14
+  },
+  {
+    "id": 17,
+    "name": "Low fat organic milk",
+    "gwp": 1.11,
+    "energyConsumption": 1.39,
+    "waterConsumption": 0
+  },
+  {
+    "id": 18,
+    "name": "Non-free range eggs",
+    "gwp": 3.94,
+    "energyConsumption": 36.1,
+    "waterConsumption": 0.18
+  },
+  {
+    "id": 19,
+    "name": "Pancetta",
+    "gwp": 10.76,
+    "energyConsumption": 91.4,
+    "waterConsumption": 0.52
+  },
+  {
+    "id": 20,
+    "name": "Pork",
+    "gwp": 10.76,
+    "energyConsumption": 91.4,
+    "waterConsumption": 0.52
+  },
+  {
+    "id": 21,
+    "name": "Pork sausages",
+    "gwp": 10.76,
+    "energyConsumption": 91.4,
+    "waterConsumption": 0.52
+  },
+  {
+    "id": 22,
+    "name": "Quorn",
+    "gwp": 0.19,
+    "energyConsumption": 1.88,
+    "waterConsumption": 0.06
+  },
+  {
+    "id": 23,
+    "name": "Red kidney beans",
+    "gwp": 0.78,
+    "energyConsumption": 5.67,
+    "waterConsumption": 0.14
+  },
+  {
+    "id": 24,
+    "name": "Rice milk",
+    "gwp": 0.26,
+    "energyConsumption": 0.26,
+    "waterConsumption": 0.26
+  },
+  {
+    "id": 25,
+    "name": "Risotto rice",
+    "gwp": 1.03,
+    "energyConsumption": 5.43,
+    "waterConsumption": 0.35
+  },
+  {
+    "id": 26,
+    "name": "Sliced beef",
+    "gwp": 27.76,
+    "energyConsumption": 164.22,
+    "waterConsumption": 0.47
+  },
+  {
+    "id": 27,
+    "name": "Sliced chicken",
+    "gwp": 6.8,
+    "energyConsumption": 64,
+    "waterConsumption": 0.34
+  },
+  {
+    "id": 28,
+    "name": "Smoked cheese",
+    "gwp": 6.2,
+    "energyConsumption": 26.71,
+    "waterConsumption": 0.11
+  },
+  {
+    "id": 29,
+    "name": "Spaghetti Carbonara pre-made meal",
+    "gwp": 3.44,
+    "energyConsumption": 28.52,
+    "waterConsumption": 0.11
+  },
+  {
+    "id": 30,
+    "name": "Tofu",
+    "gwp": 3.23,
+    "energyConsumption": 14.37,
+    "waterConsumption": 0
+  },
+  {
+    "id": 31,
+    "name": "UHT milk",
+    "gwp": 1.31,
+    "energyConsumption": 5.82,
+    "waterConsumption": 0.02
+  },
+  {
+    "id": 32,
+    "name": "Vegetarian salami",
+    "gwp": 0.19,
+    "energyConsumption": 1.88,
+    "waterConsumption": 0.06
+  },
+  {
+    "id": 33,
+    "name": "Wholegrain dry pasta",
+    "gwp": 1.49,
+    "energyConsumption": 17.23,
+    "waterConsumption": 0.01
+  },
+  {
+    "id": 34,
+    "name": "Lamb",
+    "gwp": 25.44,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 35,
+    "name": "Butter",
+    "gwp": 11.52,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 36,
+    "name": "Turkey",
+    "gwp": 5.9,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 37,
+    "name": "Rabbit",
+    "gwp": 3.61,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 38,
+    "name": "Cod",
+    "gwp": 3.49,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 39,
+    "name": "Eggs",
+    "gwp": 3.4,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 40,
+    "name": "Insect",
+    "gwp": 2.3,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 41,
+    "name": "Whole Milk",
+    "gwp": 1.4,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": "42Wheat",
+    "name": 0.51,
+    "gwp": "",
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 43,
+    "name": "Peas",
+    "gwp": 0.6,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 44,
+    "name": "Barley",
+    "gwp": 0.52,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 45,
+    "name": "Chickpeas",
+    "gwp": 0.67,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  }
+]
