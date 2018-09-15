@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sustineri/sustineri.svg?branch=master)](https://travis-ci.org/sustineri/sustineri)
+
 # Sustineri
 
 A project for the HackZurich 2018.
