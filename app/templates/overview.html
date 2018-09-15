@@ -12,15 +12,22 @@
             <div>
                 <button onclick="toUpload()" type="submit">Upload receipt</button>
             </div>
+            <div id="result">
+                <div id="below-avg" style="display: none">
+                    Good boy
+                </div>
+                <div id="above-avg" style="display: none">
+                    Goddam daniel, be a better human! Invest some money in a fund!
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-  <script src="../static/js/core.js"></script>
-  <script src="../static/js/charts.js"></script>
-  <script src="../static/js/material.js"></script>
+<script src="../static/js/core.js"></script>
+<script src="../static/js/charts.js"></script>
+<script src="../static/js/material.js"></script>
 <script>
-
     am4core.useTheme(am4themes_material);
 
     var chart = am4core.create("chartdiv", am4charts.XYChart);
@@ -52,7 +59,7 @@
             "avg": 4642
         }, {
             "date": "2018-09-16",
-            "gwp": 1287,
+            "gwp": 4287,
             "avg": 3873
         }]
     };
@@ -139,6 +146,18 @@
     function toUpload() {
         window.location = '/upload';
     }
+
+
+    $(function () {
+        let newest = data.data.reduce(function (a, b) {
+            return a.date > b.date ? a : b
+        });
+        if (newest.gwp > newest.avg) {
+            $("#above-avg").css("display", "block")
+        } else {
+            $("#below-avg").css("display", "block")
+        }
+    });
 </script>
 
 {% endblock %}
