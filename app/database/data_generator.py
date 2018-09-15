@@ -4,7 +4,7 @@ RECEIPT_SIZE = 300
 
 
 def generate_week():
-    return randint(0, 52)
+    return randint(0, 37)
 
 
 def get_user_id():
