@@ -19,6 +19,15 @@ stop:
 	@docker-compose stop
 	@echo Stop done.
 
+.PHONY: stop_deps
+stop_deps:
+	@docker-compose kill sustineri-database
+	@docker-compose rm -f
+
+.PHONY: start_deps
+start_deps:
+	@docker-compose up -d sustineri-database
+
 .PHONY: clean
 clean:
 	@rm -rf .cache

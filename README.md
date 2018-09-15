@@ -20,7 +20,13 @@ git clone git@github.com:lucachristen/sustineri.git \
 ## Run
 
 ```bash
+# With Docker
 make start
+
+# With Python but Docker Database
+make start_deps 
+# One off command ensuring database can be accessed from local dev env
+echo "127.0.0.1 sustineri-databas" | sudo tee -a /etc/hosts 
 ```
 
 ## Server API

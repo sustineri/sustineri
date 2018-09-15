@@ -1,5 +1,8 @@
 version: '3'
 
+volumes:
+  sustineri_database:
+
 services:
   sustineri:
     build:
@@ -9,3 +12,16 @@ services:
       - ./app:/app
     ports:
       - 3000:3000
+    depends_on:
+      - sustineri-database
+
+  sustineri-database:
+    image: mariadb:10.1.36
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: sustineri
+    volumes:
+    - ./ops/compose/mariadb/init.sql:/docker-entrypoint-initdb.d/init.sql
+    - sustineri_database:/var/lib/mysql
+    ports:
+    - 3306:3306
