@@ -60,7 +60,6 @@ class SustineriData:
 
             data.append(record)
 
-        print(data)
         return data
 
 
@@ -72,15 +71,19 @@ class SustineriData:
             passwd=environ.get('DATABASE_PASSWORD'),
             db=environ.get('DATABASE_NAME')
         )
-        sql = '''
-            INSERT INTO receipts (upload_date, user_id)
+        sql_receipt = '''
+            INSERT INTO receipts (upload_week, user_id)
             VALUES (WEEKOFYEAR(CURDATE()), 1);
+        '''
+        sql_items = '''
             INSERT INTO items (name, price, amount, gwp, receipt_id)
-            VALUES (%s, %s, %s, %s, LAST_INSERT_ID());
+            VALUES (%s, %s, %s, %s, %s);
         '''
         cursor = conn.cursor()
         try:
-            cursor.executemany(sql, items);
-            cursor.commit()
+            cursor.execute(sql_receipt)
+            items_receipt = list(map(lambda x: x + (cursor.lastrowid, ), items))
+            cursor.executemany(sql_items, items_receipt)
+            conn.commit()
         except:
             cursor.rollback()

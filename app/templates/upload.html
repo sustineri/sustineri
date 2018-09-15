@@ -28,7 +28,7 @@ function upload()
         var data = JSON.stringify({ pdf : base64 });
 
         // hacky way to get URL to work in PROD and DEV
-        fetch(window.location.origin + "/api/test_pdf", {
+        fetch(window.location.origin + "/api/upload", {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ function upload()
             body : data
         })
         .then(res => { return res.json(); })
-        .then(data => { $("#resultText").text(JSON.stringify(data)) })
+        .then(data => { $("#resultText").text("Upload complete") })
         .catch(error => { console.log("Error: ", error) });
     };
     reader.onerror = error => { console.log("Error: ", error); };

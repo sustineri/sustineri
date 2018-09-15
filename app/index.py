@@ -8,6 +8,7 @@ from database.init import DatabaseInitialiser
 from database.data import SustineriData
 from pdf.coop_pdf_parser import CoopPdfParser
 from credit_suisse.credit_suisse_api import CreditSuisseApi
+from matcher.receipt_matcher import ReceiptMatcher
 
 app = Flask(__name__)
 
@@ -26,11 +27,28 @@ def api_get_something():
     return jsonify(**{"hello": "world"})
 
 
-@app.route('/api/test_pdf', methods=['POST'])
+@app.route('/api/upload', methods=['POST'])
 def api_test_pdf():
     try:
         json_data = request.get_json()
-        return jsonify(CoopPdfParser.parse(json_data['pdf']))
+        data = CoopPdfParser.parse(json_data['pdf'])
+
+        db_data = []
+        matcher = ReceiptMatcher()
+        for record in data:
+            match, footprint = matcher.match(record['productName'])
+
+            if len(match) == 0:
+                match = record['productName']
+
+            db_data.append((match,
+                            record['price'],
+                            record['amount'],
+                            footprint))
+
+        SustineriData.add_items(db_data)
+
+        return jsonify(data)
     except Exception as e:
         return jsonify(**{"error": e})
 
