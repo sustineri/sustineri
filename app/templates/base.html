@@ -22,7 +22,7 @@
   <div id="main">
     <div id="content">
       <nav id="nav">
-        <img src="../static/images/logo_ohnehintergrund.png" class="logo" alt="Sustineri logo">
+        <img src="../static/images/logo_ohnehintergrund.png" class="logo" id="logo" alt="Sustineri logo">
         <a href="./overview">Overview</a>
         <a href="./upload">Upload</a>
         <a href="#" onclick="logout()">Logout</a>
@@ -43,11 +43,25 @@
       } else {
         $("#nav").css("display", "inline-grid");
       }
+      checkLogo();
     })
 
     function logout() {
       localStorage.setItem("loggedIn", 'false');
       window.location = '/';
+    }
+
+    $(window).on('resize', function () {
+      checkLogo();
+    })
+
+    function checkLogo () {
+      let width = $(window).width();
+      if (width < 600) {
+        $("#logo").attr("src", "../static/images/logo_small.png");
+      } else {
+        $("#logo").attr("src", "../static/images/logo_ohnehintergrund.png");
+      }
     }
   </script>
 </body>
