@@ -93,7 +93,7 @@
     valueAxis.renderer.gridContainer.zIndex = 1;
 
     var axisRange2 = valueAxis.axisRanges.create();
-    axisRange2.value = 12000;
+    axisRange2.value = 10000;
     axisRange2.grid.strokeOpacity = 0.1;
     axisRange2.label.align = "right";
     axisRange2.label.verticalCenter = "bottom";
@@ -113,6 +113,7 @@
     avg.tooltipText = "Average gwp: {valueY.value}";
     avg.fill = am4core.color("#2c3dc1");
     avg.stroke = am4core.color("#2c3dc1");
+    avg.strokeWidth = 3;
 
     var columnTemplate = series.columns.template;
     columnTemplate.width = 30;
@@ -123,11 +124,7 @@
     var scrollbarX = new am4charts.XYChartScrollbar();
     scrollbarX.series.push(series);
     scrollbarX.series.push(avg);
-
-    scrollbarX.po
     chart.scrollbarX = scrollbarX;
-
-
 
     columnTemplate.adapter.add("fill", function (fill, target) {
         var dataItem = target.dataItem;
