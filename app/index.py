@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
-import pdfParser
 import base64
+
+from app.pdf.coop_pdf_parser import CoopPdfParser
 
 app = Flask(__name__)
 
@@ -24,7 +25,7 @@ def api_test_pdf():
     try:
         json_data = request.get_json()
         pdf = base64.b64decode(json_data['pdf'])
-        return jsonify(pdfParser.parse(pdf))
+        return jsonify(CoopPdfParser.parse(pdf))
     except Exception as e:
         return jsonify(**{"error": e})
 
