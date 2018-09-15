@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-import base64
 
 from app.pdf.coop_pdf_parser import CoopPdfParser
 
