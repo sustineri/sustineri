@@ -50,5 +50,9 @@ def upload():
     return render_template('upload.html')
 
 
+@app.route('/compensate')
+def compensate():
+    return render_template('compensate.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000, debug=True)
