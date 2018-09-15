@@ -14,6 +14,11 @@ start:
 	@docker-compose up -d
 	@echo Start done.
 
+.PHONY: stop
+stop:
+	@docker-compose stop
+	@echo Stop done.
+
 .PHONY: clean
 clean:
 	@rm -rf .cache
