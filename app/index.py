@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, jsonify
+import pdfParser
+import base64
 
 app = Flask(__name__)
 
@@ -15,6 +17,16 @@ def api_post_something():
 @app.route('/api/get_something', methods=['GET'])
 def api_get_something():
     return jsonify(**{"hello": "world"})
+
+
+@app.route('/api/test_pdf', methods=['POST'])
+def api_test_pdf():
+    try:
+        json_data = request.get_json()
+        pdf = base64.b64decode(json_data['pdf'])
+        return jsonify(pdfParser.parse(pdf))
+    except Exception as e:
+        return jsonify(**{"error": e})
 
 
 @app.route('/')

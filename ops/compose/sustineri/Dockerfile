@@ -7,6 +7,13 @@ RUN mkdir -p /sustineri
 COPY app /sustineri/app
 WORKDIR /sustineri/app
 
+# prerequisites
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpoppler-cpp-dev \
+    pkg-config \
+    python-dev
+
 # python dependencies
 COPY ./requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
