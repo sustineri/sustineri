@@ -8,12 +8,12 @@
         <p>Here are some ways to compensate:</p>
         <table class="divTable">
             <thead id="thead">
-            <tr>
+                <tr>
                     <th>Isin</th>
                     <th>Name</th>
                     <th>Currency</th>
                     <th>Select</th>
-            </tr>
+                </tr>
             </thead>
             <tbody id="tbody">
 
@@ -40,11 +40,11 @@
                 data.object.forEach(element => {
                     console.log(element)
                     $('#tbody').append('<tr>' +
-                    '<td>' + element.isin + '</td>' +
-                    '<td>' + element.description + '</td>' + 
-                    '<td>' + element.currency + '</td>' +
-                    '<td>' + '<a href="#">select</a>' + '</td>' +
-                '</tr')                    
+                        '<td>' + element.isin + '</td>' +
+                        '<td>' + element.description + '</td>' +
+                        '<td>' + element.currency + '</td>' +
+                        '<td>' + '<a href="#">select</a>' + '</td>' +
+                        '</tr')
                 });
             })
             .catch(error => {
