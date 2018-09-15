@@ -6,7 +6,9 @@
     <div class="title">
         <h1>Nice overview</h1>
         <div class="diagram">
-            <div id="chartdiv" style="width: 100%; height: 400px;"></div>
+            <div id="chartdiv" style="width: 100%; height: 400px;">
+                <h2>Loading data...</h2>
+            </div>
             <div>
                 <button onclick="toUpload()" type="submit">Upload receipt</button>
             </div>
@@ -14,12 +16,12 @@
     </div>
 </div>
 
-  <script src="//www.amcharts.com/lib/4/core.js"></script>
-  <script src="//www.amcharts.com/lib/4/charts.js"></script>
-  <script src="//www.amcharts.com/lib/4/themes/animated.js"></script>
+  <script src="../static/js/core.js"></script>
+  <script src="../static/js/charts.js"></script>
+  <script src="../static/js/material.js"></script>
 <script>
 
-    am4core.useTheme(am4themes_animated);
+    am4core.useTheme(am4themes_material);
 
     var chart = am4core.create("chartdiv", am4charts.XYChart);
 
@@ -67,14 +69,6 @@
     dateAxis.tooltip.hiddenState.properties.opacity = 1;
     dateAxis.tooltip.hiddenState.properties.visible = true;
 
-
-    dateAxis.tooltip.adapter.add("x", function (x, target) {
-        return am4core.utils.spritePointToSvg({
-            x: chart.plotContainer.pixelX,
-            y: 0
-        }, chart.plotContainer).x + chart.plotContainer.pixelWidth / 2;
-    })
-
     var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.renderer.inside = true;
     valueAxis.renderer.labels.template.fillOpacity = 0.3;
@@ -115,8 +109,8 @@
 
     var columnTemplate = series.columns.template;
     columnTemplate.width = 30;
-    columnTemplate.column.cornerRadiusTopLeft = 20;
-    columnTemplate.column.cornerRadiusTopRight = 20;
+    columnTemplate.column.cornerRadiusTopLeft = 3;
+    columnTemplate.column.cornerRadiusTopRight = 3;
     columnTemplate.strokeOpacity = 0;
 
     var scrollbarX = new am4charts.XYChartScrollbar();
