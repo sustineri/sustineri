@@ -1,0 +1,7 @@
+sudo: required
+language: bash
+services:
+- docker
+script:
+  - docker build --file ops/compose/sustineri/Dockerfile -t emazzotta/sustineri:latest .
+  - if [[ "$TRAVIS_BRANCH" == "master" ]]; then echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin ; docker push emazzotta/sustineri:latest ; fi
