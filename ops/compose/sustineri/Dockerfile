@@ -19,8 +19,8 @@ COPY ./requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 ENV PYTHONUNBUFFERED 1
-ENV PYTHONPATH /sustineri/:/sustineri/app/:/sustineri/app/src:$PYTHONPATH
+ENV PYTHONPATH /sustineri/:/sustineri/app/:$PYTHONPATH
 
 EXPOSE 3000
 
-CMD ["python", "src/index.py"]
+CMD ["python", "index.py"]
