@@ -28,50 +28,44 @@
 <script>
     am4core.useTheme(am4themes_material);
 
-    var chart = am4core.create("chartdiv", am4charts.XYChart);
+    let chart = am4core.create("chartdiv", am4charts.XYChart);
+    let data;
 
-    data = {
-        "data": [{
-            "date": 31,
-            "gwp": 4561,
-            "avg": 4232
-        }, {
-            "date": 32,
-            "gwp": 5687,
-            "avg": 4928
-        }, {
-            "date": 33,
-            "gwp": 6348,
-            "avg": 6432
-        }, {
-            "date": 34,
-            "gwp": 4878,
-            "avg": 4922
-        }, {
-            "date": 35,
-            "gwp": 6867,
-            "avg": 4992
-        }, {
-            "date": 36,
-            "gwp": 7561,
-            "avg": 4642
-        }, {
-            "date": 37,
-            "gwp": 4287,
-            "avg": 3873
-        }]
-    };
-
-    data.data.map(ele => ele.date = getDateOfWeek(ele.date, 2018));
-    chart.data = data.data;
+    fetch(window.location.origin + "/api/overview", {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "GET"
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(dataRes => {
+            data = dataRes;
+            data.map(ele => ele.date = getDateOfWeek(ele.date, 2018));
+            chart.data = data;
+            let newest = data.reduce(function (a, b) {
+                return a.date > b.date ? a : b
+            });
+            if (newest.gwp > newest.avg) {
+                let usagePercentage = newest.gwp / newest.avg * 100 - 100;
+                localStorage.setItem('usagePercentage', usagePercentage.toFixed(2));
+                $("#above-avg").css("display", "block")
+            } else {
+                $("#below-avg").css("display", "block")
+            }
+        })
+        .catch(error => {
+            console.log("Error: ", error)
+        });
 
     chart.dateFormatter.inputDateFormat = "YYYY-MM-dd";
     chart.zoomOutButton.disabled = true;
 
     var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
     dateAxis.renderer.grid.template.strokeOpacity = 0;
-    dateAxis.renderer.minGridDistance = 10;
-    dateAxis.dateFormats.setKey("day", "d");
+    dateAxis.dateFormats.setKey("MMM-d");
     dateAxis.tooltip.hiddenState.properties.opacity = 1;
     dateAxis.tooltip.hiddenState.properties.visible = true;
 
@@ -112,6 +106,7 @@
     avg.tooltipText = "Average GWP: {valueY.value} KG CO2";
     avg.fill = am4core.color("#2c3dc1");
     avg.stroke = am4core.color("#2c3dc1");
+    avg.tensionX = 0.8;
     avg.strokeWidth = 3;
 
     var columnTemplate = series.columns.template;
@@ -149,18 +144,6 @@
         return new Date(y, 0, d).toISOString().substring(0, 10);
     }
 
-    $(function () {
-        let newest = data.data.reduce(function (a, b) {
-            return a.date > b.date ? a : b
-        });
-        if (newest.gwp > newest.avg) {
-            let usagePercentage = newest.gwp / newest.avg * 100 - 100;
-            localStorage.setItem('usagePercentage', usagePercentage.toFixed(2));
-            $("#above-avg").css("display", "block")
-        } else {
-            $("#below-avg").css("display", "block")
-        }
-    });
 </script>
 
 {% endblock %}
