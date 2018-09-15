@@ -16,9 +16,13 @@
                 </tr>
             </thead>
             <tbody id="tbody">
-
             </tbody>
         </table>
+        <div class="invest-dialog" id="invest-dialog">
+            <input type="number" class="invest-amount" id="invest-amount" step="0.05" placeholder="How much CHF do you want to invest?">
+            <button type="submit" onclick="makePayment();" id="invest-button">Invest</button>
+        </div>
+        <div class="invest-confirmation" id="invest-confirmation"></div>
     </div>
 </div>
 
@@ -38,12 +42,12 @@
             })
             .then(data => {
                 data.object.forEach(element => {
-                    console.log(element)
                     $('#tbody').append('<tr>' +
                         '<td>' + element.isin + '</td>' +
                         '<td>' + element.description + '</td>' +
                         '<td>' + element.currency + '</td>' +
-                        '<td>' + '<a href="#">select</a>' + '</td>' +
+                        '<td>' + '<a href="#" onclick="invest(\'' + element.isin + '\');" >select</a>' +
+                        '</td>' +
                         '</tr')
                 });
             })
@@ -56,5 +60,14 @@
         get_etfs();
         $("#percentage").text(localStorage.getItem('usagePercentage'));
     });
+
+    function invest(isin) {
+        $("#invest-dialog").css("display", "block");
+    }
+
+    function makePayment() {
+        let text = "You invested " + parseFloat($("#invest-amount").val()).toFixed(2) + " CHF.";
+        $("#invest-confirmation").css("display", "block").text(text);
+    }
 </script>
 {% endblock %}

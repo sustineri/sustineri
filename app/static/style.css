@@ -160,3 +160,16 @@ table td, table th {
 tr {
     text-align: center;
 }
+
+.invest-dialog {
+	width: 100%;
+	display: none;
+}
+
+.invest-amount {
+	width: 300px;
+}
+
+.invest-confirmation {
+	display: none;
+}
