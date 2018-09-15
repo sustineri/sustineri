@@ -1,34 +1,48 @@
-<html>
-<head>
-<title>Sustineri</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js" ></script>
-<link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-	<div id="main">
-		<div id="content">
-		</div>
-	</div>
-    <script>
-      // Example for a request
-      //  $(function() {
-      //      setInterval(function() {
-      //          $.getJSON("/api/get_images", function(data) {
-      //              if($('#person > img').attr("src") != data['person_image_url'] || $('#product > img').attr("src") != data['product_image_url']) {
-      //                  $('#person > img').attr("src", data['person_image_url']);
-      //                  $('#product > img').attr("src", data['product_image_url']);
-      //                  $('#main').removeClass('animation_white');
-      //                  $('#main').addClass('animation_blink');
-      //                  beep.play();
-      //              }
-      //          });
-      //      }, 500);
-      //      setInterval(function() {
-      //          $('#main').removeClass('animation_blink');
-      //          $('#main').addClass('animation_white');
-      //      }, 4000);
-      //  });
-    </script>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<div class="panel">
+  <div class="start">
+    <div class="title">
+      Sustineri.
+    </div>
+    <div class="subtitle">
+      Go <span class="green">green</span>
+    </div>
+  </div>
+  <div class="login">
+    <div>
+      <input type="text" id="username" placeholder="username">
+    </div>
+    <div>
+      <input type="password" id="password" placeholder="password">
+    </div>
+    <button id="login" onclick="login()" type="submit">Login</button>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+  function login() {
+    let username = $("#username")
+    let pw = $("#password")
+    if (username.val() === '') {
+      username.css('border', '1px solid red')
+    } else {
+      username.css('border', '1px solid black')
+    }
+    if (pw.val() === '') {
+      pw.css('border', '1px solid red')
+    } else {
+      pw.css('border', '1px solid black')
+    }
+    if (username.val() !== '' && pw.val() !== '') {
+      console.log("wohoo");
+    }
+  }
+</script>
+
+{% endblock %}
