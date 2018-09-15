@@ -1,5 +1,45 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-Aplod
+<div class="panel">
+    <div class="title">
+        <h1>Upload</h1>
+        <div>
+            <input id="fileInput" type="file" />
+            <button id="uploadBtn" onclick="upload()" type="submit">Upload</button>
+        </div>
+        <div>
+            <p id="resultText" />
+        </div>
+    </div>
+</div>
+
+<script>
+
+function upload()
+{
+    if (fileInput.files.length == 0) return;
+
+    var reader = new FileReader();
+    reader.readAsDataURL(fileInput.files[0]);
+
+    reader.onload = () => {
+        var base64 = reader.result.split(",")[1];
+        var data = JSON.stringify({ pdf : base64 });
+        fetch("http://localhost:3000/api/test_pdf", {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body : data
+        })
+        .then(res => { return res.json(); })
+        .then(data => { $("#resultText").text(JSON.stringify(data)) })
+        .catch(error => { console.log("Error: ", error) });
+    };
+    reader.onerror = error => { console.log("Error: ", error); };
+}
+
+</script>
 {% endblock %}
