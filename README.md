@@ -2,7 +2,7 @@
 
 # Sustineri
 
-A project for the HackZurich 2018.
+🌍 Find out your food consumption CO2 footprint and compensate by investing in sustainable ETFs
 
 ## Prerequisites
 
@@ -21,12 +21,12 @@ git clone git@github.com:lucachristen/sustineri.git \
 
 ```bash
 # With Docker
+make use_docker
 make start
 
 # With Python but Docker Database
+make use_local
 make start_deps 
-# One off command ensuring database can be accessed from local dev env
-echo "127.0.0.1 sustineri-databas" | sudo tee -a /etc/hosts 
 ```
 
 ## Server API
@@ -36,7 +36,7 @@ echo "127.0.0.1 sustineri-databas" | sudo tee -a /etc/hosts
 **Required:**
 ```json
 {
-    "hello": "test",
+    "hello": "test"
 }
 ```
 

@@ -5,6 +5,7 @@ MAINTAINER Emanuele Mazzotta hello@mazzotta.me
 # basics
 RUN mkdir -p /sustineri
 COPY app /sustineri/app
+COPY .env /sustineri/app/.env
 WORKDIR /sustineri/app
 
 # prerequisites

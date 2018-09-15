@@ -1,7 +1,8 @@
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, jsonify
 
+from database.init import DatabaseInitialiser
 from pdf.coop_pdf_parser import CoopPdfParser
-
 from credit_suisse.credit_suisse_api import CreditSuisseApi
 
 app = Flask(__name__)
@@ -45,6 +46,7 @@ def index():
 def overview():
     return render_template('overview.html')
 
+
 @app.route('/upload')
 def upload():
     return render_template('upload.html')
@@ -55,4 +57,6 @@ def compensate():
     return render_template('compensate.html')
 
 if __name__ == '__main__':
+    load_dotenv()
+    DatabaseInitialiser.init()
     app.run(host='0.0.0.0', port=3000, debug=True)

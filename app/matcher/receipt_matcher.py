@@ -1,14 +1,15 @@
 import json
-import os
+from os.path import abspath, dirname, join
 
+from dotenv import load_dotenv
 
-CARBON_DATA_PATH = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'carbon_data'))
+CARBON_DATA_PATH = abspath(join(dirname(abspath(__file__)), '..', 'carbon_data'))
 
 
 class ReceiptMatcher:
 
     def __init__(self):
-        self.foot_print_data = json.loads(open(os.path.join(CARBON_DATA_PATH, 'carbon_data.json')).read())
+        self.foot_print_data = json.loads(open(join(CARBON_DATA_PATH, 'carbon_data.json')).read())
 
     def match(self, input_food_name):
         global_word_match_count = 0
@@ -32,4 +33,5 @@ class ReceiptMatcher:
 
 
 if __name__ == '__main__':
+    load_dotenv()
     print(f'Match: {ReceiptMatcher().match("Schweinefleisch")}')

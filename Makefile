@@ -9,6 +9,14 @@ build:
 	@docker-compose build
 	@echo Build done.
 
+.PHONY: use_local
+use_local:
+	@cp .env.local .env
+
+.PHONY: use_docker
+use_docker:
+	@cp .env.docker .env
+
 .PHONY: start
 start:
 	@docker-compose up -d
