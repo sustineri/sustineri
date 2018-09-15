@@ -12,4 +12,5 @@ script:
   - docker build --file ops/compose/sustineri/Dockerfile -t emazzotta/sustineri:latest .
   - if [[ "$TRAVIS_BRANCH" == "master" ]]; then echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin ; docker push emazzotta/sustineri:latest ; fi
   - cf login -a https://api.lyra-836.appcloud.swisscom.com -u "$CF_USERNAME" -p "$CF_PASSWORD"
+  - cf create-service mariadbent free sustineri-database
   - cf push -f ops/deploy/manifest-dev.yml
