@@ -147,3 +147,4 @@ testlib
 tmp
 var
 venv
+.vscode
