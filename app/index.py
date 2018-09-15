@@ -1,3 +1,4 @@
+import json
 from os import environ
 
 from dotenv import load_dotenv
@@ -61,6 +62,13 @@ def compensate():
 
 if __name__ == '__main__':
     load_dotenv()
+    if environ.get('VCAP_SERVICES'):
+        services_credentials = json.loads(environ.get('VCAP_SERVICES'))
+        environ['DATABASE_HOST'] = str(services_credentials['mariadbent'][0]['credentials']['host'])
+        environ['DATABASE_PORT'] = str(services_credentials['mariadbent'][0]['credentials']['port'])
+        environ['DATABASE_NAME'] = str(services_credentials['mariadbent'][0]['credentials']['name'])
+        environ['DATABASE_USER'] = str(services_credentials['mariadbent'][0]['credentials']['username'])
+        environ['DATABASE_PASSWORD'] = str(services_credentials['mariadbent'][0]['credentials']['password'])
     print("========================================")
     print("=========         ENV VARS         =====")
     print("========================================")
@@ -69,10 +77,6 @@ if __name__ == '__main__':
     print(f"database user: {environ.get('DATABASE_USER')}")
     print(f"database pw: {environ.get('DATABASE_PASSWORD')}")
     print(f"database name: {environ.get('DATABASE_NAME')}")
-    print(f"vcap services 1: {environ.get('VCAP_SERVICES.mariadbent')}")
-    print(f"vcap services 2: {environ.get('VCAP_SERVICES.mariadbent[0]')}")
-    print(f"vcap services 3: {environ.get('VCAP_SERVICES.mariadbent.[0]')}")
-    print(f"vcap services 4: {environ.get('VCAP_SERVICES.mariadbent.credentials')}")
     print("========================================")
     DatabaseInitialiser.init()
     app.run(host='0.0.0.0', port=3000, debug=True)
