@@ -6,20 +6,29 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   <link rel="stylesheet" href="../static/style.css">
+
+  <script>
+function logout() {
+  window.location = '/';
+}
+
+  </script>
 </head>
 
 <body>
   <div class="bg"></div>
   <div class="bg2"></div>
+  </div>
   <div id="main">
     <div id="content">
+      <nav>
+          <a href="./overview">Overview</a>
+          <a href="./upload">Upload</a>
+          <a href="#" onclick="logout()">Logout</a>
+      </nav>
       {% block page_content %}{% endblock %}
     </div>
   </div>
-  </div>
-
-
-
 </body>
 
 </html>
