@@ -56,7 +56,6 @@ $RECYCLE.BIN
 *.so
 *.so.*
 *.spec
-*.sql
 *.su
 *.sublime*
 *.swp
