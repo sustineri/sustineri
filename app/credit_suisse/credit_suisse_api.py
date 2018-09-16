@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 
 class CreditSuisseApi:
-    def get_etf(self, isin='US92189F5026'):
+    def get_etf(self):
         response = requests.post('https://csopenbankingzh.azurewebsites.net/securities/search', headers={
             **{'Content-Type': 'application/json'},
             **{'Accept': 'application/json'},
