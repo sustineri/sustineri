@@ -18,13 +18,13 @@ class SustineriData:
             db=environ.get('DATABASE_NAME')
         )
         sql_all = '''
-            SELECT AVG(i.gwp), r.upload_week
+            SELECT SUM(i.gwp), r.upload_week
             FROM items i, receipts r
             WHERE r.receipt_id = i.receipt_id
             GROUP BY r.upload_week
         '''
         sql_single = '''
-            SELECT AVG(i.gwp), r.upload_week
+            SELECT SUM(i.gwp), r.upload_week
             FROM items i, receipts r
             WHERE r.user_id = 1 AND r.receipt_id = i.receipt_id
             GROUP BY r.upload_week
@@ -34,7 +34,7 @@ class SustineriData:
 
         data_all = {}
         for gwp, upload_week in cursor:
-            data_all[upload_week] = gwp
+            data_all[upload_week] = gwp / 10
 
         cursor.execute(sql_single)
 

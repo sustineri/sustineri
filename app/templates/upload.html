@@ -5,11 +5,15 @@
     <div class="title">
         <h1>Upload</h1>
         <div>
-            <input id="fileInput" type="file" />
-            <button id="uploadBtn" onclick="upload()" type="submit">Upload</button>
+            <p>
+                Select a receipt you've received from Coop. We calculate the CO<sub>2</sub> 
+                footprint of your food and add it to your total. You'll be redirected to the
+                overview once the upload is complete.
+            </p>
         </div>
         <div>
-            <p id="resultText" />
+            <input id="fileInput" type="file" />
+            <button id="uploadBtn" onclick="upload()" type="submit">Upload</button>
         </div>
     </div>
 </div>
@@ -37,7 +41,10 @@ function upload()
             body : data
         })
         .then(res => { return res.json(); })
-        .then(data => { $("#resultText").text("Upload complete") })
+        .then(data => {
+            console.log(data)
+            window.location = '/overview'
+        })
         .catch(error => { console.log("Error: ", error) });
     };
     reader.onerror = error => { console.log("Error: ", error); };

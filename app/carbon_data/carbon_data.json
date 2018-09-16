@@ -15,7 +15,7 @@
   },
   {
     "id": 3,
-    "name": "Rindfleisch",
+    "name": "Beef",
     "gwp": 27.76,
     "energyConsumption": 164.22,
     "waterConsumption": 0.47
@@ -311,6 +311,34 @@
     "id": 45,
     "name": "Kichererbsen",
     "gwp": 0.67,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 46,
+    "name": "Avocado",
+    "gwp": 10,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 47,
+    "name": "Mozzarella",
+    "gwp": 2,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 48,
+    "name": "Rauchlachsstreifen",
+    "gwp": 8,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 48,
+    "name": "Oliven",
+    "gwp": 1,
     "energyConsumption": "",
     "waterConsumption": ""
   }

@@ -37,6 +37,7 @@ def api_test_pdf():
         matcher = ReceiptMatcher()
         for record in data:
             match, footprint = matcher.match(record['productName'])
+            record['footprint'] = footprint
 
             if len(match) == 0:
                 match = record['productName']
