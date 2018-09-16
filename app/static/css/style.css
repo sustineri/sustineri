@@ -213,3 +213,8 @@ tr {
 #below-avg, #above-avg {
 	font-size: 20px;
 }
+
+#matchTable {
+	display: none;
+	width: 100%;
+}

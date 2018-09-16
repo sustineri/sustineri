@@ -7,13 +7,26 @@
         <div>
             <p>
                 Select a receipt you've received from Coop. We calculate the CO<sub>2</sub> 
-                footprint of your food and add it to your total. You'll be redirected to the
-                overview once the upload is complete.
+                footprint of your food and add it to your total.
             </p>
         </div>
         <div>
             <input id="fileInput" type="file" />
             <button id="uploadBtn" onclick="upload()" type="submit">Upload</button>
+        </div>
+        <div>
+            <table id="matchTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Footprint</th>
+                        <th>Amount</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
@@ -43,7 +56,16 @@ function upload()
         .then(res => { return res.json(); })
         .then(data => {
             console.log(data)
-            window.location = '/overview'
+            data.forEach(ele => {
+                $("#tbody").append('<tr>' +
+                    '<td>'+ ele.productName + '</td>' +
+                    '<td>'+ ele.footprint + '</td>' +
+                    '<td>'+ ele.amount + '</td>' +
+                    '<td>'+ ele.price + '</td>' +
+                    '</tr>'
+                    )
+            });
+            $("#matchTable").css("display", "inline-table");
         })
         .catch(error => { console.log("Error: ", error) });
     };
