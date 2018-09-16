@@ -1,6 +1,6 @@
 from random import randint, random
 
-NR_OF_WEEKS = 37
+NR_OF_WEEKS = 38
 
 
 def get_user_id():
