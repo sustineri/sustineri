@@ -7,28 +7,25 @@
     <div class="title">
       Sustineri.
     </div>
-    <div class="subtitle">
-      Go <span class="green">green</span>
+    <div class="subtitle green">
+      Go green
     </div>
   </div>
   <div class="login">
     <div>
-      <input type="text" id="username" placeholder="username">
+      <input type="text" id="username" placeholder="Username">
     </div>
     <div>
-      <input type="password" id="password" placeholder="password">
+      <input type="password" id="password" placeholder="Password">
     </div>
     <button id="login" onclick="login()" type="submit">Login</button>
   </div>
 </div>
-</div>
-</div>
-</div>
 
 <script>
   function login() {
-    let username = $("#username")
-    let pw = $("#password")
+    let username = $("#username");
+    let pw = $("#password");
     if (username.val() === '') {
       username.css('border', '1px solid red')
     } else {
