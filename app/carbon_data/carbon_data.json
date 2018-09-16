@@ -341,5 +341,96 @@
     "gwp": 1,
     "energyConsumption": "",
     "waterConsumption": ""
+  },
+  {
+    "id": 48,
+    "name": "Sweep Potato",
+    "gwp": 5.5,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 49,
+    "name": "Nierstück",
+    "gwp": 18,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 50,
+    "name": "Chuck Eye Steak",
+    "gwp": 20,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 51,
+    "name": "Camembert",
+    "gwp": 12,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 52,
+    "name": "Gnocchi",
+    "gwp": 9,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 53,
+    "name": "Champignons",
+    "gwp": 1,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 54,
+    "name": "Zwiebeln",
+    "gwp": 1,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 55,
+    "name": "Knoblauch",
+    "gwp": 1,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 56,
+    "name": "Aprikose",
+    "gwp": 5,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 57,
+    "name": "Paprika",
+    "gwp": 3.5,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 58,
+    "name": "Sennenmutschli",
+    "gwp": 2.785,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 59,
+    "name": "Sennenmutschli",
+    "gwp": 2.785,
+    "energyConsumption": "",
+    "waterConsumption": ""
+  },
+  {
+    "id": 60,
+    "name": "Erdbeeren",
+    "gwp": 5.1294,
+    "energyConsumption": "",
+    "waterConsumption": ""
   }
 ]
