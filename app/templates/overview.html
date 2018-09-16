@@ -4,7 +4,7 @@
 
 <div class="panel">
     <div class="title">
-        <h1>Your Dashboard</h1>
+        <h1>Dashboard</h1>
         <div id="result">
             <div id="below-avg" style="display: none">
                 Awesome! Your CO<sub>2</sub> footprint is better then the average!
@@ -12,6 +12,24 @@
             <div id="above-avg" style="display: none">
                 <p>Oh it looks like your CO<sub>2</sub> footprint is above average this week.</p>
                 <button onclick="toCompensate()" type="submit">Let's compensate it!</button>
+            </div>
+            <div class="result">
+                <div class="you">
+                    <div class="val">
+                        <span id="val-me"></span>
+                    </div>
+                    <div class="desc">
+                        Me
+                    </div>
+                </div>
+                <div class="others">
+                    <div class="val">
+                        <span id="val-others"></span>
+                    </div>
+                    <div class="desc">
+                        Others
+                    </div>
+                </div>
             </div>
         </div>
         <div class="diagram">
@@ -54,13 +72,22 @@
             let newest = data.reduce(function (a, b) {
                 return a.date > b.date ? a : b
             });
+            let me = parseFloat(newest.gwp).toFixed(2) + " KG ";
+            let others = parseFloat(newest.avg).toFixed(2) + " KG ";
+            
             if (newest.gwp > newest.avg) {
                 let usagePercentage = newest.gwp / newest.avg * 100 - 100;
                 localStorage.setItem('usagePercentage', usagePercentage.toFixed(2));
-                $("#above-avg").css("display", "block")
+                $("#above-avg").css("display", "block");
+                others = others.concat("👍");
+                me = me.concat("👎");
             } else {
                 $("#below-avg").css("display", "block")
+                me = me.concat("👍");
+                others = others.concat("👎");
             }
+            $("#val-me").text(me);
+            $("#val-others").text(others);
         })
         .catch(error => {
             console.log("Error: ", error)
@@ -147,7 +174,6 @@
         var d = (1 + (w - 1) * 7);
         return new Date(y, 0, d).toISOString().substring(0, 10);
     }
-
 </script>
 
 {% endblock %}

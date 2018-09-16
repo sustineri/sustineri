@@ -74,7 +74,7 @@ nav .logo {
 }
 
 h1 {
-	color: #fff;
+	color: #000;
 }
 
 .panel {
@@ -178,4 +178,33 @@ tr {
 
 .invest-confirmation {
 	display: none;
+}
+
+.result {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 60% 40%;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.result .you {
+	grid-column-start: 1;
+	border-right: 1px solid black;
+}
+
+.result .others {
+	grid-column-start: 2;
+}
+
+.val {
+	font-size: 40px;
+}
+
+.desc {
+	font-size: 20px;
+}
+
+#below-avg, #above-avg {
+	font-size: 20px;
 }
