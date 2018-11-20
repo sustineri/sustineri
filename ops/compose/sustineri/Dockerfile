@@ -1,6 +1,6 @@
 FROM python:3.7
 
-MAINTAINER Emanuele Mazzotta hello@mazzotta.me
+LABEL maintainer="hello@mazzotta.me"
 
 # basics
 RUN mkdir -p /sustineri
