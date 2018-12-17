@@ -3,17 +3,17 @@ FROM python:3.7
 LABEL maintainer="hello@mazzotta.me"
 
 # basics
-RUN mkdir -p /sustineri
-COPY app /sustineri/app
-COPY .env /sustineri/app/.env
 WORKDIR /sustineri/app
+COPY app /sustineri
+COPY .env /sustineri/app
 
 # prerequisites
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpoppler-cpp-dev \
-    pkg-config \
-    python-dev
+RUN apt-get update && apt-get install -qy \
+        build-essential \
+        libpoppler-cpp-dev \
+        pkg-config \
+        python-dev && \
+    rm -rf /var/lib/apt/lists/*
 
 # python dependencies
 COPY ./requirements.txt requirements.txt
