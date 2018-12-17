@@ -2,10 +2,7 @@ FROM python:3.7
 
 LABEL maintainer="hello@mazzotta.me"
 
-# basics
-WORKDIR /sustineri/app
-COPY app /sustineri
-COPY .env /sustineri/app
+WORKDIR /sustineri
 
 # prerequisites
 RUN apt-get update && apt-get install -qy \
@@ -19,9 +16,9 @@ RUN apt-get update && apt-get install -qy \
 COPY ./requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENV PYTHONUNBUFFERED 1
-ENV PYTHONPATH /sustineri/:/sustineri/app/:$PYTHONPATH
+COPY app /sustineri/app
+COPY .env /sustineri/app/.env
 
 EXPOSE 3000
 
-CMD ["python", "index.py"]
+CMD ["python", "/sustineri/app/index.py"]

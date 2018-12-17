@@ -9,14 +9,15 @@ services:
       context: .
       dockerfile: ./ops/compose/sustineri/Dockerfile
     volumes:
-      - ./app:/app
+      - ./app:/sustineri/app
+      - ./.env:/sustineri/.env
     ports:
       - 3000:3000
     depends_on:
       - sustineri-database
 
   sustineri-database:
-    image: mariadb:10.1.36
+    image: mariadb:10.3.10
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: sustineri
